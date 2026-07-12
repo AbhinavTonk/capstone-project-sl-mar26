@@ -1,13 +1,18 @@
 #1- Imports
 import streamlit as st
 from dotenv import load_dotenv
-
+from agent_workflows.agent_orchestration import run
 from app_config.config import AgenticAIConfig
+from observability.logger import logger
+
+
+logger.info(" Agentic AI Application Execution Started")
 
 #2- Loading Env Variables
 load_dotenv() # It will load all the Env Variables
 
 #3- Set Page Config
+logger.info(" Setting Page Config for the Streamlit")
 st.set_page_config(
     page_title="Simplilearn Capstone", #Show it in the Tab
     page_icon="🤖",
@@ -26,7 +31,7 @@ if "chat_history" not in st.session_state:
 #6- Setting dict for Available Models
 MODEL_REGISTRY={
     "OpenAI":["gpt-4.1","gpt-4o","gpt-4o-mini","gpt-3.5-turbo"],
-    "Ollama":["llama3","mistral","phi3","gemma"]
+    "Ollama":["llama3","ollama/qwen2.5:7b","phi3","gemma"]
 }
 
 #7- Creating Sidebar
@@ -98,7 +103,7 @@ if st.button("Generate Response", type="primary"):
         # Create a Spinner until response is generated
         with st.spinner("AI Agent is Thinking..."):
             # Call CrewAI FLow
-            # TODO
+            run(config)
             
             #Store the response for display in conversation history
             st.session_state.chat_history.append(

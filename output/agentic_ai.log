@@ -1,0 +1,8 @@
+2026-07-12 16:54:13,129 | DEBUG | Compression thread final flush: trace_count=0
+2026-07-12 16:54:13,129 | DEBUG | Compression thread final flush: no data to send
+2026-07-12 16:54:13,130 | DEBUG | Compressed traces control thread is shutting down
+2026-07-12 16:54:13,299 | DEBUG | Main thread is dead, stopping tracing thread
+2026-07-12 16:54:13,299 | DEBUG | Tracing thread draining queue on exit: qsize=0
+2026-07-12 16:54:13,299 | DEBUG | Tracing control thread is shutting down
+2026-07-12 16:54:13,299 | DEBUG | Closing Client.session
+2026-07-12 16:54:13,303 | DEBUG | Closing Client.session
